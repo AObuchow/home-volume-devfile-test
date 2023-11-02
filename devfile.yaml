@@ -1,0 +1,18 @@
+schemaVersion: 2.1.0
+metadata:
+  name: test-home-volume
+projects:
+  - name: springbootproject
+    git:
+      remotes:
+        origin: https://github.com/odo-devfiles/springboot-ex.git
+components:
+  - name: tools
+    container:
+      image: quay.io/aobuchow/universal-developer-image:m2
+      memoryLimit: 3Gi
+      volumeMounts:
+        - name: persistentHome
+          path: /home/user/
+  - name: persistentHome
+    volume: {}
